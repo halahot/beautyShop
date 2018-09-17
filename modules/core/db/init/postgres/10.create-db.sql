@@ -65,6 +65,7 @@ create table BEAUTYSHOP_PRODUCT (
     BALANCE integer,
     CATEGORY_ID uuid,
     SUB_CATEGORY_ID uuid,
+    ORDER_ID uuid,
     --
     primary key (ID)
 )^
@@ -81,8 +82,8 @@ create table BEAUTYSHOP_ORDER (
     DELETED_BY varchar(50),
     --
     SEQ_NO bigint,
+    SUMMARY decimal(19, 2),
     DONE_TS date,
-    GOODS_ID uuid,
     PRICE decimal(19, 2),
     COUNT_ integer,
     --
