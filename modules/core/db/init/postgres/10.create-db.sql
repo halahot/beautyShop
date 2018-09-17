@@ -61,11 +61,11 @@ create table BEAUTYSHOP_PRODUCT (
     DELETED_BY varchar(50),
     --
     NAME varchar(255),
+    BRANDS_ID uuid,
     PRICE decimal(19, 2),
     BALANCE integer,
     CATEGORY_ID uuid,
     SUB_CATEGORY_ID uuid,
-    ORDER_ID uuid,
     --
     primary key (ID)
 )^
@@ -84,6 +84,7 @@ create table BEAUTYSHOP_ORDER (
     SEQ_NO bigint,
     SUMMARY decimal(19, 2),
     DONE_TS date,
+    GOODS_ID uuid,
     PRICE decimal(19, 2),
     COUNT_ integer,
     --
