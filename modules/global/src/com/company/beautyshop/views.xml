@@ -1,4 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <views xmlns="http://schemas.haulmont.com/cuba/view.xsd">
-
+    <view class="com.company.beautyshop.entity.Product"
+          extends="_local"
+          name="product-full">
+        <property name="brands"
+                  view="_minimal"/>
+        <property name="category"
+                  view="_minimal"/>
+        <property name="subCategory"
+                  view="_minimal"/>
+    </view>
+    <view class="com.company.beautyshop.entity.Order"
+          extends="_local"
+          name="order-with-product">
+        <property name="goods"
+                  view="_minimal"/>
+    </view>
+    <view class="com.company.beautyshop.entity.Delivery"
+          extends="_local"
+          name="delivery-with-product">
+        <property name="goods"
+                  view="_minimal"/>
+    </view>
+    <view class="com.company.beautyshop.entity.SubCategory"
+          extends="_local"
+          name="subCategory-with-category">
+        <property name="category"
+                  view="_minimal"/>
+    </view>
 </views>

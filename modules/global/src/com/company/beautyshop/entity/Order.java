@@ -12,6 +12,8 @@ import com.haulmont.chile.core.annotations.NamePattern;
 import java.util.Date;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import java.util.List;
+import javax.persistence.OneToMany;
 
 @NamePattern("%s|seqNo")
 @Table(name = "BEAUTYSHOP_ORDER")
@@ -22,19 +24,39 @@ public class Order extends StandardEntity {
     @Column(name = "SEQ_NO")
     protected Long seqNo;
 
+    @Column(name = "SUMMARY")
+    protected BigDecimal summary;
+
     @Temporal(TemporalType.DATE)
     @Column(name = "DONE_TS")
     protected Date doneTs;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "GOODS_ID")
-    protected Product goods;
+    @OneToMany(mappedBy = "order")
+    protected List<Product> goods;
 
     @Column(name = "PRICE")
     protected BigDecimal price;
 
     @Column(name = "COUNT_")
     protected Integer count;
+
+    public void setSummary(BigDecimal summary) {
+        this.summary = summary;
+    }
+
+    public BigDecimal getSummary() {
+        return summary;
+    }
+
+
+    public List<Product> getGoods() {
+        return goods;
+    }
+
+    public void setGoods(List<Product> goods) {
+        this.goods = goods;
+    }
+
 
     public void setDoneTs(Date doneTs) {
         this.doneTs = doneTs;
@@ -51,14 +73,6 @@ public class Order extends StandardEntity {
 
     public Long getSeqNo() {
         return seqNo;
-    }
-
-    public void setGoods(Product goods) {
-        this.goods = goods;
-    }
-
-    public Product getGoods() {
-        return goods;
     }
 
     public void setPrice(BigDecimal price) {

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.beautyshop.web.brand.BrandBrowse"
+        focusComponent="brandsTable"
+        lookupComponent="brandsTable"
+        messagesPack="com.company.beautyshop.web.brand">
+    <dsContext>
+        <groupDatasource id="brandsDs"
+                         class="com.company.beautyshop.entity.Brand"
+                         view="_local">
+            <query>
+                <![CDATA[select e from beautyshop$Brand e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="brandsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="brandsTable"
+                datasource="brandsDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="brandsTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="name"/>
+            </columns>
+            <rows datasource="brandsDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="brandsTable.create"/>
+                <button id="editBtn"
+                        action="brandsTable.edit"/>
+                <button id="removeBtn"
+                        action="brandsTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.beautyshop.web.delivery.DeliveryEdit"
+        datasource="deliveryDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.beautyshop.web.delivery">
+    <dsContext>
+        <datasource id="deliveryDs"
+                    class="com.company.beautyshop.entity.Delivery"
+                    view="delivery-with-product"/>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="deliveryDs">
+            <column width="250px">
+                <field property="dateOfDelivery"/>
+                <field property="goods"/>
+                <field property="price"/>
+                <field property="count"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.beautyshop.web.order.OrderEdit"
+        datasource="orderDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.beautyshop.web.order">
+    <dsContext>
+        <datasource id="orderDs"
+                    class="com.company.beautyshop.entity.Order"
+                    view="order-with-product">
+            <collectionDatasource id="goodsDs"
+                                  property="goods"/>
+        </datasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout spacing="true">
+        <scrollBox height="100%">
+            <fieldGroup id="fieldGroup"
+                        datasource="orderDs">
+                <column width="250px">
+                    <field property="goods"/>
+                    <field property="count"/>
+                </column>
+            </fieldGroup>
+            <button id="addProductButton"
+                    caption="Добавить товар"/>
+            <table height="200px"
+                   width="100%">
+                <columns>
+                    <column id="name"/>
+                    <column id="price"/>
+                    <column id="balance"/>
+                </columns>
+                <rows datasource="goodsDs"/>
+            </table>
+            <frame id="windowActions"
+                   screen="editWindowActions"/>
+        </scrollBox>
+    </layout>
+</window>

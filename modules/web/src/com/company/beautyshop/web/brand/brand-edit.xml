@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.beautyshop.web.brand.BrandEdit"
+        datasource="brandDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.beautyshop.web.brand">
+    <dsContext>
+        <datasource id="brandDs"
+                    class="com.company.beautyshop.entity.Brand"
+                    view="_local"/>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="brandDs">
+            <column width="250px">
+                <field property="name"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

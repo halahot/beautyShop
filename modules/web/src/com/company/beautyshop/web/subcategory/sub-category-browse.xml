@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.beautyshop.web.subcategory.SubCategoryBrowse"
+        focusComponent="subCategoriesTable"
+        lookupComponent="subCategoriesTable"
+        messagesPack="com.company.beautyshop.web.subcategory">
+    <dsContext>
+        <groupDatasource id="subCategoriesDs"
+                         class="com.company.beautyshop.entity.SubCategory"
+                         view="subCategory-with-category">
+            <query>
+                <![CDATA[select e from beautyshop$SubCategory e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="subCategoriesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="subCategoriesTable"
+                datasource="subCategoriesDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="subCategoriesTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="category"/>
+                <column id="name"/>
+                <column id="description"/>
+            </columns>
+            <rows datasource="subCategoriesDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="subCategoriesTable.create"/>
+                <button id="editBtn"
+                        action="subCategoriesTable.edit"/>
+                <button id="removeBtn"
+                        action="subCategoriesTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

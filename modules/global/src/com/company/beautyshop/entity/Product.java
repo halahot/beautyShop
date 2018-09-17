@@ -38,6 +38,19 @@ public class Product extends StandardEntity {
     @JoinColumn(name = "SUB_CATEGORY_ID")
     protected SubCategory subCategory;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ORDER_ID")
+    protected Order order;
+
+    public void setOrder(Order order) {
+        this.order = order;
+    }
+
+    public Order getOrder() {
+        return order;
+    }
+
+
     public void setSubCategory(SubCategory subCategory) {
         this.subCategory = subCategory;
     }

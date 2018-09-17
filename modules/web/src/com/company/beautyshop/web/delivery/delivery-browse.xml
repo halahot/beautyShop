@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.beautyshop.web.delivery.DeliveryBrowse"
+        focusComponent="deliveriesTable"
+        lookupComponent="deliveriesTable"
+        messagesPack="com.company.beautyshop.web.delivery">
+    <dsContext>
+        <groupDatasource id="deliveriesDs"
+                         class="com.company.beautyshop.entity.Delivery"
+                         view="delivery-with-product">
+            <query>
+                <![CDATA[select e from beautyshop$Delivery e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="deliveriesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="deliveriesTable"
+                datasource="deliveriesDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="deliveriesTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="seqNo"/>
+                <column id="goods"/>
+                <column id="price"/>
+                <column id="dateOfDelivery"/>
+                <column id="count"/>
+            </columns>
+            <rows datasource="deliveriesDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="deliveriesTable.create"/>
+                <button id="editBtn"
+                        action="deliveriesTable.edit"/>
+                <button id="removeBtn"
+                        action="deliveriesTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

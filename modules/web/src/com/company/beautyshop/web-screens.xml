@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <screen-config xmlns="http://schemas.haulmont.com/cuba/screens.xsd">
-
     <include file="com/company/beautyshop/screens.xml"/>
-
+    <screen id="beautyshop$Brand.browse"
+            template="com/company/beautyshop/web/brand/brand-browse.xml"/>
+    <screen id="beautyshop$Brand.edit"
+            template="com/company/beautyshop/web/brand/brand-edit.xml"/>
+    <screen id="beautyshop$Category.browse"
+            template="com/company/beautyshop/web/category/category-browse.xml"/>
+    <screen id="beautyshop$Category.edit"
+            template="com/company/beautyshop/web/category/category-edit.xml"/>
+    <screen id="beautyshop$Delivery.browse"
+            template="com/company/beautyshop/web/delivery/delivery-browse.xml"/>
+    <screen id="beautyshop$Delivery.edit"
+            template="com/company/beautyshop/web/delivery/delivery-edit.xml"/>
+    <screen id="beautyshop$Order.browse"
+            template="com/company/beautyshop/web/order/order-browse.xml"/>
+    <screen id="beautyshop$Order.edit"
+            template="com/company/beautyshop/web/order/order-edit.xml"/>
+    <screen id="beautyshop$Product.browse"
+            template="com/company/beautyshop/web/product/product-browse.xml"/>
+    <screen id="beautyshop$Product.edit"
+            template="com/company/beautyshop/web/product/product-edit.xml"/>
+    <screen id="beautyshop$SubCategory.browse"
+            template="com/company/beautyshop/web/subcategory/sub-category-browse.xml"/>
+    <screen id="beautyshop$SubCategory.edit"
+            template="com/company/beautyshop/web/subcategory/sub-category-edit.xml"/>
 </screen-config>
